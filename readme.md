@@ -48,4 +48,10 @@ Installation
 >
 >     cat apns-dev-cert.pem apns-dev-key-noenc.pem > apns-dev.pem
 
+Numbering is kind of messed up here.  Sorry.
+
 14. Move the newly created `apns-dev.pem` file into the `Web/certs` folder of DubDub.
+15. Open the DubDub iOS project which is located in the `iOS` folder of DubDub.
+16. Build the project on your device using the provisioning profile that you created in step 8.
+17. Copy the quoted NSData which appears in the log after you have enabled push notifications in the application.
+18. Open `Web/php/dd_push.php` and add this copied NSData to the tokens array.

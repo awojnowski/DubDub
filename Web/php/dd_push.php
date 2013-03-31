@@ -4,8 +4,9 @@
 
         private static $certificate = '../certs/apns-dev.pem';
 
+        // add your device tokens here
         public static $tokens = array(
-            '7fedd8ba4bcbe19a393640ead43fdb8bf523850925a3407aad03aff7624d3c64'
+            '<7fedd8ba 4bcbe19a 393640ea d43fdb8b f5238509 25a3407a ad03aff7 624d3c64>'
         );
 
         public static function send() {
