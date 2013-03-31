@@ -27,6 +27,7 @@ Installation
 11. Follow the instructions and ultimately download the Development Push SSL Certificate.
 12. Install this certificate in Keychain Access, by double clicking it.
 13. Create the `apns-dev.pem` file by following the instructions below (thanks to http://blog.serverdensity.com/how-to-build-an-apple-push-notification-provider-server-tutorial/):
+
 > 1. Launch Keychain Assistant from your local Mac and from the login keychain, filter by the Certificates category. You will see an expandable option called “Apple Development Push Services”
 > 2. Expand this option then right click on “Apple Development Push Services” > Export “Apple Development Push Services ID123″. Save this as apns-dev-cert.p12 file somewhere you can access it.
 > 3. Do the same again for the “Private Key” that was revealed when you expanded “Apple Development Push Services” ensuring you save it as apns-dev-key.p12 file.
