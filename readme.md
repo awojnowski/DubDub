@@ -73,3 +73,8 @@ If you want to run DubDub on a webserver (recommended because you can view the i
 
 1. Upload the web folder to a webserver.
 2. Setup something to call the `Web/php/dubdub.php` file every ten minutes.  I'd once again recommend crontab and you can see the instructions above.
+
+License
+-------
+
+There isn't one.  Use everything as you please.
