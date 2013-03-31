@@ -38,4 +38,5 @@ Installation
 >     openssl rsa -in apns-dev-key.pem -out apns-dev-key-noenc.pem
 > 5. Finally, you need to combine the key and cert files into a apns-dev.pem file we will use when connecting to APNS:
 >     cat apns-dev-cert.pem apns-dev-key-noenc.pem > apns-dev.pem
+
 14. Move the newly created `apns-dev.pem` file into the `Web/certs` folder of DubDub.
