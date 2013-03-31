@@ -14,6 +14,8 @@ Requirements
 Installation
 ------------
 
+The installation instructions are a little long.  TL;DR: Setup provisioning profile, setup push notification, call `Web/php/dubdub.php` every ten minutes.
+
 1. Download DubDub.
 2. Visit http://developer.apple.com/devcenter/ios/index.action.
 3. Open the iOS Provisioning Portal.
@@ -55,3 +57,17 @@ Numbering is kind of messed up here.  Sorry.
 16. Build the project on your device using the provisioning profile that you created in step 8.
 17. Copy the quoted NSData which appears in the log after you have enabled push notifications in the application.
 18. Open `Web/php/dd_push.php` and add this copied NSData to the tokens array.
+
+Now that everything is setup, we just need to be able to run the `Web/php/dubdub.php` file every few minutes.  For this example, I'll choose every ten minutes.
+
+If you want to run DubDub locally, you can do something like so using crontab:
+
+1. Open crontab by typing `crontab -e`.
+2. Add the following line:
+
+    0,10,20,30,40,50 * * * * /usr/local/bin/php /Users/You/pathtodubdub/Web/php/dubdub.php
+
+If you want to run DubDub on a webserver (recommended because you can view the index.php file to see the hashes from anywhere), you can just do something like so:
+
+1. Upload the web folder to a webserver.
+2. Setup something to call the `Web/php/dubdub.php` file every ten minutes.  I'd once again recommend crontab and you can see the instructions above.
