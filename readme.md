@@ -65,7 +65,7 @@ If you want to run DubDub locally, you can do something like so using crontab:
 1. Open crontab by typing `crontab -e`.
 2. Add the following line:
 
-      0,10,20,30,40,50 * * * * /usr/local/bin/php /Users/You/pathtodubdub/Web/php/dubdub.php
+    `0,10,20,30,40,50 * * * * /usr/local/bin/php /Users/You/pathtodubdub/Web/php/dubdub.php`
 
 If you want to run DubDub on a webserver (recommended because you can view the index.php file to see the hashes from anywhere), you can just do something like so:
 
