@@ -63,7 +63,7 @@ Numbering is kind of messed up here.  Sorry.
 Now that everything is setup, we just need to be able to run the `Web/php/dubdub.php` file every few minutes.  For this example, I'll choose every ten minutes and run DubDub using crontab:
 
 1. Open crontab by typing `crontab -e`.
-2. Add an entry to run DubDub `0,10,20,30,40,50 * * * * /usr/local/bin/php /Users/You/pathtodubdub/Web/php/dubdub.php`.
+2. Add an entry to run DubDub: `0,10,20,30,40,50 * * * * /usr/local/bin/php /Users/You/pathtodubdub/Web/php/dubdub.php`
 3. Verify that DubDub is running by visiting `Web/index.php` and checking the date and hash.
 
 License
