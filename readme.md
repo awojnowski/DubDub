@@ -15,17 +15,29 @@ Installation
 ------------
 
 1) Download DubDub.
+
 2) Visit http://developer.apple.com/devcenter/ios/index.action.
+
 3) Open the iOS Provisioning Portal.
+
 4) Open the App IDs section.
+
 5) Click "New App ID" and create a non-wildcard App ID.
+
 6) Open the "Provisioning" section.
+
 7) Under the "Development" tab, click "New Profile".
+
 8) Create a new provisioning profile.  Make sure that your device is selected in the Devices section.  If not, add it to the Provisioning Portal and start again at step 7.
+
 9) Go back to App IDs"and click "Configure" next to the App ID you created in step 5.
+
 10) Next to Development Push SSL Certificate, click "Configure".
+
 11) Follow the instructions and ultimately download the Development Push SSL Certificate.
+
 12) Install this certificate in Keychain Access, by double clicking it.
+
 13) Create the `apns-dev.pem` file by following the instructions below (thanks to http://blog.serverdensity.com/how-to-build-an-apple-push-notification-provider-server-tutorial/):
 
 > 1. Launch Keychain Assistant from your local Mac and from the login keychain, filter by the Certificates category. You will see an expandable option called “Apple Development Push Services”
