@@ -27,7 +27,7 @@ TL;DR: Setup provisioning profile, setup push notification, setup something to c
 7. Under the "Development" tab, click "New Profile".
 8. Create a new provisioning profile.  Make sure that your device is selected in the Devices section.  If not, add it to the Provisioning Portal and start again at step 7.
 9. Go back to App IDs"and click "Configure" next to the App ID you created in step 5.
-10. Next to Development Push SSL Certificate, click "Configure".
+10. Beside "Development Push SSL Certificate", click "Configure".
 11. Follow the instructions and ultimately download the Development Push SSL Certificate.
 12. Install this certificate in Keychain Access, by double clicking it.
 13. Create the `apns-dev.pem` file by following the instructions below (thanks to http://blog.serverdensity.com/how-to-build-an-apple-push-notification-provider-server-tutorial/):
