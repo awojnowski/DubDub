@@ -7,8 +7,6 @@
     $db = DD_DB::load();
     $db = array_reverse($db);
 
-    print_r($db);
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,16 +17,16 @@
         <table>
             <tr>
                 <td>
-                    <strong>Date</strong>
+                    <strong>Timestamp</strong>
                 </td>
-                <td>
+                <td style="padding-left:20px;">
                     <strong>Hash</strong>
                 </td>
             </tr>
             <?php foreach ($db as $row): ?>
                  <tr>
                     <td><?php echo $row['timestamp']; ?></td>
-                    <td><?php echo $row['hash']; ?></td>
+                    <td style="padding-left:20px;"><?php echo $row['hash']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

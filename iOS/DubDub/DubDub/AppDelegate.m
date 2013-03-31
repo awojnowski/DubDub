@@ -19,7 +19,28 @@
     self.viewController = [[ViewController alloc] init];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+    
     return YES;
+}
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+        
+    NSLog(@"Your device token is \"%@\".  Make sure to add this to the PHP file.",deviceToken);
+    
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    
+    NSLog(@"Shit hit the fan.  We could register for remote notifications.  Here's the error: %@",error);
+    
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    NSLog(@"We received a remote notification: %@",userInfo);
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -42,6 +63,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

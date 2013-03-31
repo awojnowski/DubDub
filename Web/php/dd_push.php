@@ -2,42 +2,58 @@
 
     class DD_Push {
 
-        public static $aps = array(
-            "alert" => "WWDC TICKETS ARE ON SALE!!@#!#!",
-            "badge" => 1,
-            "sound" => "default"
-        );
-
         private static $certificate = '../certs/apns-dev.pem';
 
         public static $tokens = array(
-            ''
+            '7fedd8ba4bcbe19a393640ead43fdb8bf523850925a3407aad03aff7624d3c64'
         );
 
         public static function send() {
 
-            $payload = array(
-                "aps" => DD_Push::$aps
+            $ctx = stream_context_create();
+            stream_context_set_option($ctx, 'ssl', 'local_cert', DD_Push::$certificate);
+
+            $fp = stream_socket_client('ssl://gateway.sandbox.push.apple.com:2195', $error, $error_string, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+
+            if (!$fp) {
+
+                echo 'Connecting to APNS failed.' . PHP_EOL;
+
+                return false;
+
+            }
+
+            echo 'Connected to APNS.' . PHP_EOL;
+
+            $body['aps'] = array(
+                'alert' => 'WWDC TICKETS ARE ON SALE!',
+                'sound' => 'default',
+                'badge' => 1
             );
 
-            $output = json_encode($payload);
-
-            $apns_host = 'gateway.sandbox.push.apple.com';
-            $apns_port = 2195;
-
-            $stream_context = stream_context_create();
-            stream_context_set_option($stream_context, 'ssl', 'local_cert', DD_Push::$certificate);
-
-            $apns = stream_socket_client('ssl://' . $apns_host . ':' . $apns_port, $error, $errorString, 2, STREAM_CLIENT_CONNECT, $stream_context);
+            // Encode the payload as JSON
+            $payload = json_encode($body);
 
             foreach (DD_Push::$tokens as $token) {
 
                 $token = str_replace(' ', '', $token);
+                $token = str_replace('<', '', $token);
+                $token = str_replace('>', '', $token);
 
-                $apns_message = chr(0) . chr(0) . chr(32) . pack('H*', $token) . chr(0) . chr(strlen($output) . $output);
-                fwrite($apns, $apns_message);
+                // Build the binary notification
+                $msg = chr(0) . pack('n', 32) . pack('H*', $token) . pack('n', strlen($payload)) . $payload;
+
+                // Send it to the server
+                $result = fwrite($fp, $msg, strlen($msg));
+
+                if (!$result)
+                    echo 'Push notification to ' . $token . ' was not delivered.' . PHP_EOL;
+                else
+                    echo 'Push notification to ' . $token . ' was successful.' . PHP_EOL;
 
             }
+
+            fclose($fp);
 
             return true;
 

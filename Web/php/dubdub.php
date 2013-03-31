@@ -32,8 +32,12 @@
             // the hashes are different,
             // we should now send a push
 
-            //DD_Push::send();
+            DD_Push::send();
 
-        } else DD_Push::send();
+        } else {
+
+            echo 'WWDC page hash has not changed.  It is still "' . $hash1 . '".';
+
+        }
 
     }
