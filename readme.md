@@ -14,8 +14,7 @@ Requirements
 Installation
 ------------
 
-1) Download DubDub.
-
+1) Download DubDub. 
 2) Visit http://developer.apple.com/devcenter/ios/index.action.
 
 3) Open the iOS Provisioning Portal.
