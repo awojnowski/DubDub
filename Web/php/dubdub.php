@@ -1,21 +1,10 @@
 <?php
 
     require_once('dd_db.php');
-
-    $db = DD_DB::load();
-
-    if (isset($_GET['api'])) {
-
-        $response = array('response'=>$db);
-
-        die(json_encode($response));
-
-        return;
-
-    }
-
     require_once('dd_push.php');
     require_once('dd_wwdc_check.php');
+
+    $db = DD_DB::load();
 
     $check_result = DD_WWDC_Check::check_wwdc();
     $last_result = end($db);
