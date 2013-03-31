@@ -16,7 +16,7 @@ Installation
 
 The installation instructions are a little long.
 
-TL;DR: Setup provisioning profile, setup push notification, call `Web/php/dubdub.php` every ten minutes.
+TL;DR: Setup provisioning profile, setup push notification, setup something to call `Web/php/dubdub.php` every few minutes.
 
 1. Download DubDub.
 2. Visit http://developer.apple.com/devcenter/ios/index.action.
