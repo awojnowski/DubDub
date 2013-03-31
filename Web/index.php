@@ -17,7 +17,7 @@
         <table>
             <tr>
                 <td>
-                    <strong>Timestamp</strong>
+                    <strong>Date</strong>
                 </td>
                 <td style="padding-left:20px;">
                     <strong>Hash</strong>
@@ -25,7 +25,7 @@
             </tr>
             <?php foreach ($db as $row): ?>
                  <tr>
-                    <td><?php echo $row['timestamp']; ?></td>
+                    <td><?php echo date('Y-m-d H:m:s', $row['timestamp']); ?></td>
                     <td style="padding-left:20px;"><?php echo $row['hash']; ?></td>
                 </tr>
             <?php endforeach; ?>
