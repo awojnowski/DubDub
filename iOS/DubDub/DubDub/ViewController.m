@@ -22,22 +22,29 @@
     
     [super viewWillAppear:animated];
     
-    [_webView removeFromSuperview];
-    
-    UIWebView *webView = [[UIWebView alloc] init];
-    [webView setFrame:[[self view] bounds]];
-    [webView setScalesPageToFit:YES];
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://developer.apple.com/wwdc"]]];
-    [[self view] addSubview:webView];
-    _webView = webView;
+    [self loadWWDCPage];
     
 }
 
 -(void)viewDidLoad {
     
-    [super viewDidLoad];
+    [super viewDidLoad];    
     
+    UIWebView *webView = [[UIWebView alloc] init];
+    [webView setFrame:[[self view] bounds]];
+    [webView setScalesPageToFit:YES];
+    [[self view] addSubview:webView];
+    _webView = webView;
     
+    [self loadWWDCPage];
+    
+}
+
+#pragma mark - WebView
+
+-(void)loadWWDCPage {
+    
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://developer.apple.com/wwdc"]]];
     
 }
 
